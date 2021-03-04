@@ -4,7 +4,7 @@ export default class App {
         this.url = url;
     }
 
-    async fetch(method) {
+    async getArtists() {
         this.list.innerText = 'On va les attraper tous';
         try {
             const response = await fetch(this.url, {
@@ -13,7 +13,6 @@ export default class App {
                     'Access-Control-Allow-Origin': '*',
                 },
             }).then((response) => response.json());
-            
 
             // crée une chaîne de caractères vide
             var html = '';
@@ -22,7 +21,7 @@ export default class App {
             // pour chaque élément de la liste (d'index i),
             // ajouter au html <p>Nom du pokémon</p>
             for (var i = 0; i < response.length; i++) {
-                console.log(response[i].civilName)
+                console.log(response[i].civilName);
                 html = html + `<li>${response[i].civilName} </li>`;
             }
 
@@ -31,5 +30,9 @@ export default class App {
         } catch (error) {
             this.list.innerHTML = error;
         }
+    }
+
+    async postArtist(event) {
+        console.log(event);
     }
 }

@@ -23,16 +23,29 @@
 
 
         <h1>Nouvel Artiste</h1>
-        <form method="post" action="traitement.php">
+        <form id="nouvelArtiste">
             <p><label>Civil Name</label> : <input type="text" name="CivilName" /></p>
             <p><label>Artist Name</label> : <input type="text" name="ArtistName" /></p>
             <p><label>Birthday</label> : <input type="date" name="Birthday" /></p>
             <p><label>Gender</label> : <input type="text" name="Gender" /></p>
             <p><label>Nationality</label> : <input type="text" name="Nationality" /></p>
             <p><label>Picture</label> : <input type="text" name="Picture" /></p>
-            <p><label>Begin Career</label> : <input type="text" name="BeginCareer" /></p>
-            <p><label>Gender</label> : <input type="text" name="Gender" /></p>
-            <p><label>Gender</label> : <input type="text" name="Gender" /></p>
+            <p><label>Begin Career</label> : <input type="date" name="BeginCareerDate" /></p>
+            <p><label>Fin de carrière</label> : <input type="date" name="EndCareerDate" /></p>
+
+            <input type="submit" value="Envoyer" />
+        </form>
+
+        <h1>Nouveeau Content</h1>
+        <form method="post" action="traitement.php">
+            <p><label>Nom</label> : <input type="text" name="Name" /></p>
+            <p><label>Durée</label> : <input type="text" name="Duration" /></p>
+            <p><label>Type</label> : <input type="date" name="Type" /></p>
+            <p><label>Image</label> : <input type="text" name="Picture" /></p>
+            <p><label>Date de publication</label> : <input type="date" name="DatePublication" /></p>
+            <p><label>Descriptionr</label> : <input type="text" name="Description" /></p>
+
+            <input type="submit" value="Envoyer" />
         </form>
         <footer></footer>
         <!-- <script src="fetch_api.js"></script> -->

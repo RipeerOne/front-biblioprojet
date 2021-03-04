@@ -1,12 +1,13 @@
 export default class App {
-    constructor() {
+    constructor(url) {
         this.list = document.getElementById('liste');
+        this.url=url;
     }
 
     async fetchPokemons() {
         this.list.innerText = 'On va les attraper tous';
         try {
-            const response = await fetch('https://api.pokemontcg.io/v2/cards').then((response) =>
+            const response = await fetch(this.url).then((response) =>
                 response.json()
             );
             const pokemonList = response.data;

@@ -1,44 +1,39 @@
-var listeElt = document.getElementById('liste');
-var list = [];
+const ourApp = (function () {
+    const constants = {
+        liste: document.getElementById('liste'),
+    };
 
-function creer_liste_en_html(list) {
-    // crée une chaîne de caractères vide
-    var html = '';
+    const fetchPokemons = async () => {
+        constants.liste.innerText = 'On va les attraper tous';
+        try {
+            const response = await fetch('https://api.pokemontcg.io/v2/cards').then((response) =>
+                response.json()
+            );
+            const pokemonList = response.data;
 
-    // pour chaque élément de la liste (d'index i),
-    // ajouter au html <p>Nom du pokémon</p>
-    for (var i = 0; i < list.length; i++) {
-        html = html + `<p>${list[i].name}</p>`;
-    }
+            // crée une chaîne de caractères vide
+            var html = '';
 
-    // écrire le html sur l'élément du DOM qui s'appelle "liste"
-    listeElt.innerHTML = html;
-}
+            // pour chaque élément de la liste (d'index i),
+            // ajouter au html <p>Nom du pokémon</p>
+            for (var i = 0; i < pokemonList.length; i++) {
+                html = html + `${pokemonList[i].name}, `;
+            }
 
-// définir l'url de l'API
-var requestURL = 'https://api.pokemontcg.io/v2/cards';
+            // écrire le html sur l'élément du DOM qui s'appelle "liste"
+            constants.liste.innerHTML = html;
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
-// créer une requête et l'envoyer
-var request = new XMLHttpRequest();
-request.open('GET', requestURL);
-request.responseType = 'json';
-request.send();
-
-// récupérer le json de la requête
-var pokemonList = [];
-request.onload = function () {
-    // on sait déjà que l'API renvoie du json de la forme
-    // {
-    //     data:
-    //         [
-    //             ici la liste
-    //         ]
-    // }
-    // donc on écrit .data
-    pokemonList = request.response.data;
-    // appeler la fonction qui affiche la liste en html
-    // creer_liste_en_html(pokemonList);
-};
+    const init = () => {
+        fetchPokemons();
+    };
+    return {
+        init: init,
+    };
+})();
 
 var bouton = document.getElementById('bouton_liste');
-bouton.addEventListener('click', () => console.log("c'est bon"));
+bouton.addEventListener('click', () => ourApp.init());

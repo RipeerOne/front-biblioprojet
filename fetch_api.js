@@ -1,17 +1,18 @@
-var liste = document.getElementById('liste');
+var listeElt = document.getElementById('liste');
+var list = [];
 
-function creer_liste_en_html(pokemonList) {
+function creer_liste_en_html(list) {
     // crée une chaîne de caractères vide
     var html = '';
 
     // pour chaque élément de la liste (d'index i),
     // ajouter au html <p>Nom du pokémon</p>
-    for (var i = 0; i < pokemonList.length; i++) {
-        html = html + `<p>${pokemonList[i].name}</p>`;
+    for (var i = 0; i < list.length; i++) {
+        html = html + `<p>${list[i].name}</p>`;
     }
 
     // écrire le html sur l'élément du DOM qui s'appelle "liste"
-    document.getElementById('liste').innerHTML = html;
+    listeElt.innerHTML = html;
 }
 
 // définir l'url de l'API
@@ -24,6 +25,7 @@ request.responseType = 'json';
 request.send();
 
 // récupérer le json de la requête
+var pokemonList = [];
 request.onload = function () {
     // on sait déjà que l'API renvoie du json de la forme
     // {
@@ -33,8 +35,10 @@ request.onload = function () {
     //         ]
     // }
     // donc on écrit .data
-    var pokemonList = request.response.data;
-
+    pokemonList = request.response.data;
     // appeler la fonction qui affiche la liste en html
-    creer_liste_en_html(pokemonList);
+    // creer_liste_en_html(pokemonList);
 };
+
+var bouton = document.getElementById('bouton_liste');
+bouton.addEventListener('click', () => console.log("c'est bon"));

@@ -9,8 +9,9 @@ nouvelArtiste.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const data = new FormData(event.target);
+    // console.log(data);
     const values = Object.fromEntries(data.entries());
-    console.log(values);
+    // console.log(values);
 
     app.postArtist(values);
 });

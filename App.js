@@ -40,10 +40,12 @@ export default class App {
 
         fetch(this.url + '/' + id, requestOptions)
             .then((response) => {
-                response.text();
-                console.log(response);
+                return response.json();
+            })
+            .then((artist) => {
+                console.log(artist);
                 var html = `<div>
-                
+                    <p>plop</p>
                 </div>`;
                 document.getElementById('artistDescription').innerHTML = html;
             })

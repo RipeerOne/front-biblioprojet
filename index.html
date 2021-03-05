@@ -7,7 +7,7 @@
         <meta property="og:type" content="website" />
         <meta property="og:url" content="" />
         <meta property="og:image" content="" />
-        <meta property="og:description" content="POOOOOOOOOOOOOKEEEEEEEEEEMOOOOOOOOOON !" />
+        <meta property="og:description" content="Biblio-projet" />
         <link rel="stylesheet" href="style.css" />
         <!-- <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> -->
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
@@ -24,14 +24,14 @@
         </div>
         <div class="formWindow">
             <h1>Nouvel Artiste</h1>
-            <form id="nouvelArtiste">
-                <p><label>Civil Name</label> : <input type="text" name="CivilName" /></p>
-                <p><label>Artist Name</label> : <input type="text" name="ArtistName" /></p>
-                <p><label>Birthday</label> : <input type="date" name="Birthday" /></p>
-                <p><label>Gender</label> : <input type="text" name="Gender" /></p>
-                <p><label>Nationality</label> : <input type="text" name="Nationality" /></p>
-                <p><label>Picture</label> : <input type="text" name="Picture" /></p>
-                <p><label>Begin Career</label> : <input type="date" name="BeginCareerDate" /></p>
+            <form id="nouvelArtiste"method ="post" action ="postArtist.php">
+                <p><label>Nom civil</label> : <input type="text" name="CivilName" /></p>
+                <p><label>Nom d'artiste</label> : <input type="text" name="ArtistName" /></p>
+                <p><label>Date de naissance</label> : <input type="date" name="Birthday" /></p>
+                <p><label>Genre</label> : <input type="text" name="Gender" /></p>
+                <p><label>Nationalité</label> : <input type="text" name="Nationality" /></p>
+                <p><label>Image</label> : <input type="text" name="Picture" /></p>
+                <p><label>Début de carrière</label> : <input type="date" name="BeginCareerDate" /></p>
                 <p><label>Fin de carrière</label> : <input type="date" name="EndCareerDate" /></p>
 
                 <p>

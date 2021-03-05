@@ -1,7 +1,9 @@
 body {
     font-family: "Titillium Web", sans-serif;
     color : white;
-    background-color : #303136;
+    background :url("https://blog.intripid.fr/wp-content/uploads/2017/04/Les-metiers-de-la-musique.jpg");
+    background-size : contain;
+    backgorund-repeat : no-repeat;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

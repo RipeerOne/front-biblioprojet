@@ -7,6 +7,10 @@ bouton.addEventListener('click', async () => app.getArtists());
 var nouvelArtiste = document.getElementById('nouvelArtiste');
 nouvelArtiste.addEventListener('submit', (event) => {
     event.preventDefault();
-    console.log(event, 'depuis main.js qui marche');
-    app.postArtist(event.target);
+
+    const data = new FormData(event.target);
+    const values = Object.fromEntries(data.entries());
+    console.log(values);
+
+    app.postArtist(values);
 });

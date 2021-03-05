@@ -32,8 +32,8 @@ export default class App {
         }
     }
 
-    postArtist(target) {
-        console.log(target);
-        
+    postArtist(values) {
+        const json_string = JSON.stringify(values);
+        console.log(json_string);
     }
 }

@@ -22,7 +22,7 @@
             <button id="bouton_liste">Afficher la liste des artistes</button>
             <ul id="liste"></ul>
         </div>
-        
+
         <div class="formWindow">
             <h1>Nouvel Artiste</h1>
             <form id="nouvelArtiste">
@@ -32,17 +32,28 @@
                 <p><label>Genre</label> : <input type="text" name="Gender" /></p>
                 <p><label>Nationalité</label> : <input type="text" name="Nationality" /></p>
                 <p><label>Image</label> : <input type="text" name="Picture" /></p>
-                <p><label>Début de carrière</label> : <input type="date" name="BeginCareerDate" /></p>
+                <p>
+                    <label>Début de carrière</label> : <input type="date" name="BeginCareerDate" />
+                </p>
                 <p><label>Fin de carrière</label> : <input type="date" name="EndCareerDate" /></p>
 
                 <p>
-                    <input type="button" value="Retour" class ="formButton"/>
-                    <input type="reset" value="Réinitialiser" class ="formButton"/>
-                    <input type="submit" value="Envoyer" class ="formButton"/>
+                    <input type="button" value="Retour" class="formButton" />
+                    <input type="reset" value="Réinitialiser" class="formButton" />
+                    <input type="submit" value="Envoyer" class="formButton" />
                 </p>
             </form>
         </div>
-
+        <div class="formWindow">
+            <h1>Rechercher un artiste</h1>
+            <form id="getArtist">
+                <p><label>Numéro</label> : <input type="search" name="artistId" /></p>
+                <input type="submit" value="Rechercher" class="formButton" />
+            </form>
+            <article id="artistDescription">
+                <!-- Div pour récupérer le résultat de la recherche -->
+            </article>
+        </div>
 
         <!-- <div class="formWindow">
             <h1>Nouveeau Content</h1>

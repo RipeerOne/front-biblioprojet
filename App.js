@@ -32,6 +32,24 @@ export default class App {
         }
     }
 
+    async getArtist(id) {
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow',
+        };
+
+        fetch(this.url + '/' + id, requestOptions)
+            .then((response) => {
+                response.text();
+                console.log(response);
+                var html = `<div>
+                
+                </div>`;
+                document.getElementById('artistDescription').innerHTML = html;
+            })
+            .catch((error) => console.log('error', error));
+    }
+
     async postArtist(values) {
         const json_string = JSON.stringify(values);
         // console.log(json_string);

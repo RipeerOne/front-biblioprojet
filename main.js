@@ -1,6 +1,6 @@
 import App from './App.js';
 
-var app = new App('https://localhost:5001/api/Artists');
+var app = new App('https://localhost:44367/api/Artists');
 var bouton = document.getElementById('bouton_liste');
 bouton.addEventListener('click', async () => app.getArtists());
 
@@ -14,4 +14,15 @@ nouvelArtiste.addEventListener('submit', (event) => {
     console.log(values);
 
     app.postArtist(values);
+});
+
+var getArtist = document.getElementById('getArtist');
+getArtist.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    const artistId = data.get('artistId');
+
+    console.log(artistId);
+
+    app.getArtist(artistId);
 });

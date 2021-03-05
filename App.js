@@ -45,8 +45,9 @@ export default class App {
             .then((artist) => {
                 console.log(artist);
                 var html = `<div>
-                    <p>plop</p>
-                </div>`;
+                    <p>${artist.civilName}</p>
+                </div>`; // rechercher l'attribut pour balayer tout l'objet artiste
+
                 document.getElementById('artistDescription').innerHTML = html;
             })
             .catch((error) => console.log('error', error));

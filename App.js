@@ -32,8 +32,21 @@ export default class App {
         }
     }
 
-    postArtist(target) {
-        console.log(target);
-        
+    async postArtist(values) {
+        const json_string = JSON.stringify(values);
+        console.log(json_string);
+
+        fetch(this.url, {
+            method: 'POST',
+            headers: {
+                accept: 'text/plain',
+                'Content-Type': 'application/json-patch+json',
+                'Access-Control-Allow-Origin': '*',
+            },
+        })
+            .then((response) => console.log(response))
+            .catch((error) => {
+                console.log(console.log(error));
+            });
     }
 }

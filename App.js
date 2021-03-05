@@ -40,17 +40,6 @@ export default class App {
         myHeaders.append('Accept', 'text/plain');
         myHeaders.append('Content-Type', 'application/json-patch+json');
 
-        var raw = JSON.stringify({
-            civilName: 'Laura',
-            artistName: 'null',
-            birthday: '2021-03-04T15:50:57',
-            gender: 't',
-            nationality: 'null',
-            picture: 'null',
-            beginCarrerDate: '2021-03-04T15:50:57',
-            endCarrerDate: '2021-03-04T15:50:57',
-        });
-
         var requestOptions = {
             method: 'POST',
             headers: myHeaders,
@@ -58,7 +47,7 @@ export default class App {
             redirect: 'follow',
         };
 
-        fetch('https://localhost:5001/api/Artists', requestOptions)
+        fetch(this.url, requestOptions)
             .then((response) => console.log(response))
             .then((result) => console.log(result))
             .catch((error) => console.log('error', error));

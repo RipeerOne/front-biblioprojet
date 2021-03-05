@@ -34,19 +34,47 @@ export default class App {
 
     async postArtist(values) {
         const json_string = JSON.stringify(values);
-        console.log(json_string);
+        // console.log(json_string);
 
-        fetch(this.url, {
+        var myHeaders = new Headers();
+        myHeaders.append('Accept', 'text/plain');
+        myHeaders.append('Content-Type', 'application/json-patch+json');
+
+        var raw = JSON.stringify({
+            civilName: 'Laura',
+            artistName: 'null',
+            birthday: '2021-03-04T15:50:57',
+            gender: 't',
+            nationality: 'null',
+            picture: 'null',
+            beginCarrerDate: '2021-03-04T15:50:57',
+            endCarrerDate: '2021-03-04T15:50:57',
+        });
+
+        var requestOptions = {
             method: 'POST',
-            headers: {
-                accept: 'text/plain',
-                'Content-Type': 'application/json-patch+json',
-                'Access-Control-Allow-Origin': '*',
-            },
-        })
+            headers: myHeaders,
+            body: json_string,
+            redirect: 'follow',
+        };
+
+        fetch('https://localhost:5001/api/Artists', requestOptions)
             .then((response) => console.log(response))
-            .catch((error) => {
-                console.log(console.log(error));
-            });
+            .then((result) => console.log(result))
+            .catch((error) => console.log('error', error));
+
+        // fetch(this.url, {
+        //     method: 'POST',
+        //     headers: {
+        //         host: 'localhost:5001',
+        //         Accept: 'text/plain',
+        //         'Content-Type': 'application/json-patch+json',
+        //         'Access-Control-Allow-Origin': '*',
+        //     },
+        // })
+        //     .then((response) => console.log(response))
+        //     .catch((error) => {
+        //         console.log(console.log(error));
+        //     });
     }
 }

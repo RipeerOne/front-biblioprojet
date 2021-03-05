@@ -36,16 +36,17 @@ export default class App {
         const json_string = JSON.stringify(values);
         console.log(json_string);
 
-        try {
-            const response = await fetch(this.url, {
-                method: 'POST',
-                headers: {
-                    accept: 'text/plain',
-                    'Content-Type': 'application/json-patch+json',
-                },
-            }).then((response) => console.log(response));
-        } catch (error) {
-            console.log(console.log(error));
-        }
+        fetch(this.url, {
+            method: 'POST',
+            headers: {
+                accept: 'text/plain',
+                'Content-Type': 'application/json-patch+json',
+                'Access-Control-Allow-Origin': '*',
+            },
+        })
+            .then((response) => console.log(response))
+            .catch((error) => {
+                console.log(console.log(error));
+            });
     }
 }

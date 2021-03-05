@@ -32,7 +32,8 @@ export default class App {
         }
     }
 
-    async postArtist(event) {
-        console.log(event);
+    postArtist(target) {
+        console.log(target);
+        
     }
 }
